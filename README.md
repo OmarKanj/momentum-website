@@ -38,6 +38,12 @@ chmod +x momentum
 
 Momentum currently supports ONNX format models. I'm actively developing additional features and format support.
 
+## Open Source
+
+If there's enough community interest, Momentum will be made open source! Help us reach the goal by showing your support.
+
+**[👍 Vote to Open Source Momentum](https://github.com/OmarKanj/momentum-website/issues/1)**
+
 ## License
 
 Free to use.
@@ -45,3 +51,5 @@ Free to use.
 ---
 
 **Website:** [momentumrvc.app](https://momentumrvc.app/)
+
+© 2024 Omarkanj. All rights reserved.
