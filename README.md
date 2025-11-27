@@ -2,6 +2,8 @@
 
 An AI-powered app that transforms audio recordings using advanced RVC voice-conversion models.
 
+![Momentum Tutorial](momentum_tutorial.gif)
+
 ## Features
 
 - Advanced RVC voice conversion technology
