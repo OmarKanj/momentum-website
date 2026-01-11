@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Momentum Features Guide: Master Voice Conversion | Momentum</title>
+    <meta name="description" content="Complete guide to Momentum's features for voice conversion. Learn how to use ONNX models, adjust parameters, and achieve professional results.">
+    <meta name="keywords" content="Momentum app, voice conversion software, RVC software, ONNX voice conversion, Momentum tutorial">
+    <meta name="author" content="Momentum Team">
+    <link rel="canonical" href="https://momentumrvc.app/blog/momentum-features-guide.html">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Momentum Features Guide: Master Voice Conversion">
+    <meta property="og:url" content="https://momentumrvc.app/blog/momentum-features-guide.html">
+    <meta name="twitter:card" content="summary_large_image">
+    <script type="application/ld+json">
+    {"@context":"https://schema.org","@type":"HowTo","name":"Momentum Features Guide","datePublished":"2024-03-15T10:00:00Z"}
+    </script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #0a0a0a; background: #fafafa; }
+        .container { max-width: 800px; margin: 0 auto; padding: 40px 24px; }
+        header { background: white; border-bottom: 1px solid #e5e5e5; padding: 20px 0; margin-bottom: 40px; }
+        .header-content { max-width: 800px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; gap: 12px; }
+        .logo { width: 40px; height: 40px; }
+        .brand { font-size: 20px; font-weight: 600; text-decoration: none; color: #0a0a0a; }
+        article { background: white; border: 1px solid #e5e5e5; border-radius: 8px; padding: 48px; }
+        h1 { font-size: 36px; font-weight: 700; line-height: 1.2; margin-bottom: 16px; }
+        .meta { color: #737373; font-size: 14px; margin-bottom: 32px; padding-bottom: 24px; border-bottom: 1px solid #f5f5f5; }
+        h2 { font-size: 28px; font-weight: 600; margin-top: 40px; margin-bottom: 16px; }
+        h3 { font-size: 22px; font-weight: 600; margin-top: 32px; margin-bottom: 12px; }
+        p { margin-bottom: 20px; color: #525252; }
+        ul, ol { margin-bottom: 20px; padding-left: 24px; }
+        li { margin-bottom: 8px; color: #525252; }
+        .highlight { background: #f5f5f5; border-left: 4px solid #0a0a0a; padding: 20px; margin: 24px 0; }
+        .cta { background: #0a0a0a; color: white; padding: 16px 32px; border-radius: 6px; text-decoration: none; display: inline-block; margin-top: 32px; }
+        footer { margin-top: 64px; padding-top: 32px; border-top: 1px solid #e5e5e5; text-align: center; color: #a3a3a3; font-size: 14px; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <img src="/icon.png" alt="Momentum Logo" class="logo">
+            <a href="/" class="brand">Momentum</a>
+        </div>
+    </header>
+    <div class="container">
+        <article>
+            <h1>Momentum Features Guide: Master Voice Conversion</h1>
+            <div class="meta"><time datetime="2024-03-15">March 15, 2024</time> • 8 min read</div>
+            <p>Momentum is a powerful, free voice conversion application supporting ONNX models for high-quality audio transformation. This guide walks through all features to help you get professional results.</p>
+            <h2>Getting Started</h2>
+            <p>Momentum provides a simple, intuitive interface designed to make voice conversion accessible to everyone:</p>
+            <ul>
+                <li>Download and install for Windows, macOS, or Linux</li>
+                <li>Load your ONNX voice models</li>
+                <li>Import or record audio</li>
+                <li>Apply voice conversion</li>
+                <li>Export your results</li>
+            </ul>
+            <div class="highlight">
+                <p><strong>100% Free:</strong> Momentum is completely free to use with no hidden costs, subscriptions, or limitations.</p>
+            </div>
+            <h2>Core Features</h2>
+            <h3>ONNX Model Support</h3>
+            <p>Momentum natively supports ONNX format voice models, providing cross-platform compatibility and optimized performance. Simply load your .onnx model file to begin.</p>
+            <h3>Audio Import</h3>
+            <p>Import audio from various sources:</p>
+            <ul>
+                <li>Load audio files (WAV, MP3, and other common formats)</li>
+                <li>Record directly within the application</li>
+                <li>Drag and drop for quick import</li>
+            </ul>
+            <h3>Real-Time Preview</h3>
+            <p>Preview your voice conversion settings before committing to full processing, saving time and enabling rapid experimentation.</p>
+            <h2>Parameter Controls</h2>
+            <p>Fine-tune your voice conversion with these key parameters:</p>
+            <h3>Pitch Adjustment</h3>
+            <p>Control the fundamental frequency of converted voice. Measured in semitones, typical range is -12 to +12. <a href="/blog/pitch-control-guide.html">Learn more about pitch control</a>.</p>
+            <h3>Index Rate</h3>
+            <p>Controls feature retrieval strength from the model. Range 0.0 to 1.0:</p>
+            <ul>
+                <li><strong>Lower values (0.3-0.5):</strong> More original voice characteristics</li>
+                <li><strong>Higher values (0.7-0.9):</strong> Stronger target voice similarity</li>
+            </ul>
+            <h3>Filter Radius</h3>
+            <p>Smooths pitch changes for more natural sound. Typical range 0-7:</p>
+            <ul>
+                <li><strong>Lower values:</strong> Preserve pitch variations</li>
+                <li><strong>Higher values:</strong> Smoother, more averaged pitch</li>
+            </ul>
+            <h2>Workflow Best Practices</h2>
+            <p>Follow this workflow for optimal results:</p>
+            <ol>
+                <li>Start with high-quality input audio</li>
+                <li>Load appropriate ONNX model for your use case</li>
+                <li>Begin with default parameters</li>
+                <li>Preview and adjust pitch first</li>
+                <li>Fine-tune index rate for quality</li>
+                <li>Adjust filter radius for smoothness</li>
+                <li>Export when satisfied with results</li>
+            </ol>
+            <h2>Tips for Best Results</h2>
+            <div class="highlight">
+                <ul>
+                    <li>Use clean, noise-free input audio</li>
+                    <li>Match model characteristics to your needs</li>
+                    <li>Make small parameter adjustments</li>
+                    <li>Test with short clips before processing long files</li>
+                    <li>Keep multiple models organized</li>
+                </ul>
+            </div>
+            <h2>Common Use Cases</h2>
+            <h3>Content Creation</h3>
+            <p>Transform voices for YouTube videos, podcasts, and creative projects without expensive voice actors.</p>
+            <h3>Character Voices</h3>
+            <p>Create distinct character voices for animation, gaming, or storytelling content.</p>
+            <h3>Voice Privacy</h3>
+            <p>Protect identity in interviews, testimonials, or sensitive recordings while maintaining natural speech.</p>
+            <h2>Troubleshooting</h2>
+            <h3>Poor Output Quality</h3>
+            <p>Solutions:</p>
+            <ul>
+                <li>Check input audio quality</li>
+                <li>Verify model is appropriate for your use case</li>
+                <li>Adjust pitch and index rate parameters</li>
+                <li>Try different filter radius settings</li>
+            </ul>
+            <h3>Model Won't Load</h3>
+            <p>Solutions:</p>
+            <ul>
+                <li>Verify file is valid ONNX format</li>
+                <li>Check file isn't corrupted</li>
+                <li>Ensure sufficient system memory</li>
+                <li>Update to latest Momentum version</li>
+            </ul>
+            <h2>Platform-Specific Notes</h2>
+            <h3>macOS Users</h3>
+            <p>Since Momentum isn't code-signed, you may need to remove quarantine attribute after downloading. See the <a href="/">download page</a> for detailed instructions.</p>
+            <h3>Windows Users</h3>
+            <p>SmartScreen may show a warning. Click "More info" then "Run anyway" to proceed with installation.</p>
+            <h3>Linux Users</h3>
+            <p>You may need to make the AppImage executable with appropriate permissions before running.</p>
+            <h2>Next Steps</h2>
+            <p>Ready to dive deeper? Explore our other tutorials:</p>
+            <ul>
+                <li><a href="/blog/how-to-use-onnx-models.html">How to Use ONNX Models</a></li>
+                <li><a href="/blog/audio-quality-optimization.html">Audio Quality Optimization</a></li>
+                <li><a href="/blog/best-rvc-models-2024.html">Best RVC Models in 2024</a></li>
+            </ul>
+            <a href="/" class="cta">Download Momentum Free</a>
+            <footer>
+                <p><a href="/" style="color: #737373; text-decoration: none;">← Back to Home</a></p>
+                <p>&copy; 2024 Momentum. All rights reserved.</p>
+            </footer>
+        </article>
+    </div>
+</body>
+</html>

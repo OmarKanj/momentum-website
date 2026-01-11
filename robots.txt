@@ -1,0 +1,12 @@
+# robots.txt for Momentum RVC
+# https://momentumrvc.app
+
+User-agent: *
+Allow: /
+Allow: /blog/
+
+# Sitemaps
+Sitemap: https://momentumrvc.app/sitemap.xml
+
+# Crawl-delay (optional, adjust if needed)
+# Crawl-delay: 1
