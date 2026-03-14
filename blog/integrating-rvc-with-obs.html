@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Integrating RVC with OBS for Live Streaming | Momentum</title>
+    <meta name="description" content="A technical walkthrough of setting up RVC for use in OBS Studio for live broadcasts.">
+    <meta name="keywords" content="RVC OBS setup, live streaming AI, virtual audio cable, OBS voice filter">
+    <meta name="author" content="Momentum Team">
+    <link rel="canonical" href="https://momentumrvc.app/blog/integrating-rvc-with-obs.html">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Integrating RVC with OBS for Live Streaming">
+    <meta property="og:description" content="A technical walkthrough of setting up RVC for use in OBS Studio for live broadcasts.">
+    <meta property="og:url" content="https://momentumrvc.app/blog/integrating-rvc-with-obs.html">
+    <meta property="og:site_name" content="Momentum">
+    <meta property="og:image" content="https://momentumrvc.app/icon.png">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Integrating RVC with OBS for Live Streaming">
+    <meta name="twitter:description" content="A technical walkthrough of setting up RVC for use in OBS Studio for live broadcasts.">
+    <meta name="twitter:image" content="https://momentumrvc.app/icon.png">
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "headline": "Integrating RVC with OBS for Live Streaming",
+        "description": "A technical walkthrough of setting up RVC for use in OBS Studio for live broadcasts.",
+        "datePublished": "2026-02-03T10:00:00Z",
+        "author": {
+            "@type": "Organization",
+            "name": "Momentum Team"
+        }
+    }
+    </script>
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; line-height: 1.6; color: #0a0a0a; background: #fafafa; }
+        .container { max-width: 800px; margin: 0 auto; padding: 40px 24px; }
+        header { background: white; border-bottom: 1px solid #e5e5e5; padding: 20px 0; margin-bottom: 40px; }
+        .header-content { max-width: 800px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; gap: 12px; }
+        .logo { width: 40px; height: 40px; }
+        .brand { font-size: 20px; font-weight: 600; color: #0a0a0a; text-decoration: none; }
+        article { background: white; border: 1px solid #e5e5e5; border-radius: 8px; padding: 48px; }
+        h1 { font-size: 36px; font-weight: 700; line-height: 1.2; margin-bottom: 16px; }
+        .meta { color: #737373; font-size: 14px; margin-bottom: 32px; padding-bottom: 24px; border-bottom: 1px solid #f5f5f5; }
+        h2 { font-size: 28px; font-weight: 600; margin-top: 40px; margin-bottom: 16px; }
+        h3 { font-size: 22px; font-weight: 600; margin-top: 32px; margin-bottom: 12px; }
+        p { margin-bottom: 20px; color: #525252; font-size: 16px; }
+        ul, ol { margin-bottom: 20px; padding-left: 24px; }
+        li { margin-bottom: 8px; color: #525252; }
+        .highlight { background: #f5f5f5; border-left: 4px solid #0a0a0a; padding: 20px; margin: 24px 0; border-radius: 4px; }
+        code { background: #f5f5f5; padding: 2px 6px; border-radius: 3px; font-family: monospace; }
+        .cta { background: #0a0a0a; color: white; padding: 16px 32px; border-radius: 6px; text-decoration: none; display: inline-block; margin-top: 32px; font-weight: 500; }
+        footer { margin-top: 64px; padding-top: 32px; border-top: 1px solid #e5e5e5; text-align: center; color: #a3a3a3; font-size: 14px; }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <img src="/icon.png" alt="Momentum Logo" class="logo">
+            <a href="/" class="brand">Momentum</a>
+        </div>
+    </header>
+
+    <div class="container">
+        <article>
+            <h1>Integrating RVC with OBS for Live Streaming</h1>
+            <div class="meta">
+                <time datetime="2026-02-03">Published on February 03, 2026</time> • 9 min read
+            </div>
+
+            
+            <p>For live streamers using OBS Studio, the addition of Retrieval-based Voice Conversion (RVC) opens up a world of creative possibilities—from character-based roleplay to interactive audience rewards. However, getting low-latency, high-quality audio routed through the complex pipes of a streaming setup requires precision. This guide provides a comprehensive technical walkthrough for integrating RVC with OBS, ensuring a professional broadcast with minimal delay.</p>
+            
+            <h2>The Architecture of Live Voice Conversion</h2>
+            <p>A standard OBS setup captures audio directly from your microphone. To add RVC, we must "intercept" that audio, process it through the AI, and then hand it back to OBS. This is achieved through virtual audio routing, which creates a digital "patch cable" between your RVC software and your streaming software.</p>
+
+            <h2>Step 1: Installing the Virtual Infrastructure</h2>
+            <p>Before touching OBS, you need a way to route audio between applications. The industry standard is VB-Audio's Virtual Cable or the Hi-Fi Cable driver.</p>
+            <div class="highlight">
+                <h3>Pre-requisites:</h3>
+                <ul>
+                    <li><strong>Virtual Cable:</strong> Download and install "VB-CABLE Virtual Audio Device."</li>
+                    <li><strong>RVC Software:</strong> Ensure you have a real-time capable RVC client (like W-Okada's Voice Changer or a similar implementation).</li>
+                    <li><strong>OBS Studio:</strong> Ensure you are running the latest version for optimal audio device support.</li>
+                </ul>
+            </div>
+
+            <h2>Step 2: Routing the Audio Path</h2>
+            <p>Correct routing is the most critical part of the setup. Follow this path to ensure your voice is transformed before it hits your stream:</p>
+            <ol>
+                <li><strong>RVC Input:</strong> Set the input device in your RVC software to your physical microphone (e.g., Focusrite USB, Blue Yeti).</li>
+                <li><strong>RVC Output:</strong> Set the output device in your RVC software to <strong>CABLE Input (VB-Audio Virtual Cable)</strong>.</li>
+                <li><strong>OBS Input:</strong> In OBS, go to Settings -> Audio. Set "Mic/Auxiliary Audio" to <strong>CABLE Output (VB-Audio Virtual Cable)</strong>.</li>
+            </ol>
+            <div class="highlight">
+                <p><strong>Warning:</strong> Never set your physical microphone as an active source in OBS at the same time as the RVC cable, or your audience will hear both your natural voice and the AI voice simultaneously (creating an "echo" effect).</p>
+            </div>
+
+            <h2>Step 3: Minimizing Latency with ASIO</h2>
+            <p>On Windows, standard WASAPI or DirectSound drivers can add 100ms+ of latency, which is noticeable for viewers. To fix this, use <strong>ASIO</strong> drivers if your hardware supports them. If your RVC software supports ASIO, use it for both input and output to achieve the lowest possible "round-trip" delay.</p>
+
+            <h2>Step 4: Monitoring Your Performance</h2>
+            <p>To give a good performance, you need to hear what the AI is doing. In OBS, go to the "Advanced Audio Properties" (click the gear next to your Mic/Aux source). Set "Audio Monitoring" to <strong>Monitor and Output</strong>.</p>
+            <ul>
+                <li><strong>Monitor Device:</strong> Ensure your "Monitoring Device" in OBS Settings -> Audio is set to your headphones.</li>
+                <li><strong>Adjustment:</strong> Hearing your transformed voice in real-time allows you to adjust your pitch and energy to better match the target RVC model.</li>
+            </ul>
+
+            <h2>Step 5: Enhancing with VST Plugins</h2>
+            <p>Even an AI voice needs a bit of professional polish. OBS allows you to add VST filters to your Mic/Aux source (the CABLE Output). Recommended filters include:</p>
+            <ul>
+                <li><strong>Noise Gate:</strong> Cleans up any silence between your words.</li>
+                <li><strong>Compressor:</strong> Ensures your volume stays consistent, even if you get excited and loud.</li>
+                <li><strong>Equalizer (EQ):</strong> Use a high-pass filter to remove low-end rumble and a slight boost in the "presence" range (3-5kHz) to help the voice cut through game audio.</li>
+            </ul>
+
+            <h2>Step 6: Stream Deck Integration and Hotkeys</h2>
+            <p>The most advanced streamers use a Stream Deck to switch RVC models on the fly. Most RVC software allows you to bind specific models to hotkeys. You can then map these hotkeys to your Stream Deck, allowing you to switch characters instantly during a broadcast without ever leaving your game.</p>
+
+            <h2>Conclusion</h2>
+            <p>Integrating RVC with OBS is a technical milestone for any creator. By mastering the routing, minimizing latency, and adding professional audio processing, you can deliver a unique and immersive experience that keeps your audience coming back for more. Your voice is no longer a limitation—it's a creative playground.</p>
+        
+
+            <a href="/" class="cta">Explore Voice AI with Momentum</a>
+
+            <footer>
+                <p><a href="/" style="color: #737373; text-decoration: none;">← Back to Home</a></p>
+                <p style="margin-top: 16px;">&copy; 2024 Momentum. All rights reserved.</p>
+            </footer>
+        </article>
+    </div>
+</body>
+</html>
